@@ -5,6 +5,8 @@
     <title></title>
     <meta charset='utf-8'>
 
+    @yield('header_content')
+
     <link rel='stylesheet' href='' type='text/css'>
     <script src="{{URL::asset('assets/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{URL::asset('assets/js/bootstrap.min.js')}}"></script>
