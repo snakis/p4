@@ -34,7 +34,12 @@ Route::resource('store', 'StoreController');
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('signin');
+});
+
+Route::get('/signup', function()
+{
+    return View::make('signup');
 });
 /*
 Route::get('/groceries', function()
