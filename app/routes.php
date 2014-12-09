@@ -34,12 +34,17 @@ Route::resource('store', 'StoreController');
 
 Route::get('/', function()
 {
-	return View::make('signin');
+	return View::make('login');
 });
 
-Route::get('/signup', function()
+Route::get('/login', function()
 {
-    return View::make('signup');
+    return View::make('login');
+});
+
+Route::get('/master_list', function()
+{
+    return View::make('master_list');
 });
 /*
 Route::get('/groceries', function()
