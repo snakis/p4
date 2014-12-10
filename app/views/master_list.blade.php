@@ -7,12 +7,15 @@
 
 @section('content')
 
+<br> <br> <br> <br>
+
 <div class="container">
+	<a href="#" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#new_entry"><b>+</b> Add more items</a>
 	<div class="row">
 		
         
         <div class="col-md-12">
-        <h4>Bootstrap Snipp for Datatable</h4>
+        <h4>Family Shopping List</h4>
         <div class="table-responsive">
 
                 
@@ -21,9 +24,9 @@
                    <thead>
                    
                    <th><input type="checkbox" id="checkall" /></th>
-                   <th>First Name</th>
-                    <th>Last Name</th>
-                     <th>Address</th>
+                   <th>Shopper Name</th>
+                    <th>Item</th>
+                     <th>Store</th>
                       <th>Edit</th>
                        <th>Delete</th>
                    </thead>
@@ -104,6 +107,37 @@
         </div>
 	</div>
 </div>
+
+<div class="modal fade" id="new_entry" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title custom_align" id="Heading">Add Your Item</h4>
+      </div>
+          <div class="modal-body">
+          <div class="form-group">
+        <input class="form-control " type="text" placeholder="Shopper">
+        </div>
+        <div class="form-group">
+        
+        <input class="form-control " type="text" placeholder="Item">
+        </div>
+        <div class="form-group">
+        <textarea rows="2" class="form-control" placeholder="Store"></textarea>
+    
+        
+        </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
 
 
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
