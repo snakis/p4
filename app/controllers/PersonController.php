@@ -2,11 +2,6 @@
 
 class PersonController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 
 	public function __construct() {
 
@@ -16,6 +11,13 @@ class PersonController extends \BaseController {
 		#only logged in users are allowed here
 		#$this->beforeFilter('auth');
 	}
+	
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+
 	public function index()
 	{
 		$persons = Person::all();

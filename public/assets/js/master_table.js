@@ -16,3 +16,10 @@ $("#mytable #checkall").click(function () {
         }
     });
 });
+/*
+var delete_modal = $('#delete');
+
+delete_modal.on('click', '#submit-modal', function() {
+    alert('hi');
+});
+*/
