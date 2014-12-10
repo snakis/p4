@@ -43,6 +43,7 @@ class PersonController extends \BaseController {
 	{
 		$person = new Person;
 		$person->name = Input::get('name');
+		$person->family_role = Input::get('family_role');
 		$person->save();
 
 		return Redirect::action('PersonController@index')->with('flash_message', 'Your new person as been added.');
@@ -103,6 +104,7 @@ class PersonController extends \BaseController {
 		}
 
 		$person->name = Input::get('name');
+		$person->family_role = Input::get('family_role');
 		$person->save();
 
 		return Redirect::action('PersonController@index');

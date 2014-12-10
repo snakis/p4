@@ -1,5 +1,22 @@
 @extends('_master')
 
 @section('content')
-	<h1>This is the person edit</h1>
+
+	{{ Form::model($person, ['method' => 'put', 'action' => ['PersonController@update', $person->id]]) }}
+
+		<h3>Update records for: {{ $person->name }}</h3>
+
+	    <div>
+	      {{ Form::label('name','Shopper Name') }}
+	      {{ Form::text('name') }}
+	    </div>
+	    <div>
+	      {{ Form::label('family_role','Family Role') }}
+	      {{ Form::text('family_role') }}
+	    </div>
+
+		{{ Form::submit('Update') }}
+
+	{{ Form::close() }}
+
 @stop

@@ -10,8 +10,8 @@
       {{ Form::text('name') }}
     </div>
     <div>
-      {{ Form::label('role','Family Role') }}
-      {{ Form::text('role') }}
+      {{ Form::label('family_role','Family Role') }}
+      {{ Form::text('family_role') }}
     </div>
 
     <br><br>

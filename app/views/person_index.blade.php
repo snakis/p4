@@ -1,5 +1,15 @@
 @extends('_master')
 
 @section('content')
-	<h1>This is the person index</h1>
+
+	<h2>View all Shoppers</h2>
+
+	@foreach($persons as $person)
+
+		<div>
+			<a href='/person/{{ $person->id }}'>{{ $person->name }}</a>
+		</div>
+
+	@endforeach
+
 @stop
