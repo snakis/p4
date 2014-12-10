@@ -27,3 +27,13 @@ $(function(){
         calc_total();
     });  
 });
+/*
+$(function(){
+    $('.btn-block').click(function(){
+        
+        var form_data = {};
+        $.each(".preview-table", )
+        });
+    });  
+});
+*/

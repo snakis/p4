@@ -22,7 +22,7 @@ class FoodController extends \BaseController {
 	 */
 	public function getCreate()
 	{
-		//$persons = People::getIdNamePair();
+		//$persons = Person::getIdNamePair();
 		//return View::make('master_list')->with('persons', $persons);
 		return View::make('master_list');
 	}

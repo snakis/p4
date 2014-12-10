@@ -64,7 +64,7 @@ class PersonController extends \BaseController {
 			return Redirect::to('/person')->with('flash_message', 'person not found');
 		}
 
-		return View::make('person_show')->with('person', 'persons');
+		return View::make('person_show')->with('person', $person);
 	}
 
 
