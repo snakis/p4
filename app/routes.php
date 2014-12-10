@@ -42,10 +42,7 @@ Route::get('/login', function()
     return View::make('login');
 });
 
-Route::get('/master_list', function()
-{
-    return View::make('master_list');
-});
+Route::get('/master_list', 'FoodController@getIndex');
 /*
 Route::get('/groceries', function()
 {

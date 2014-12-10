@@ -9,7 +9,9 @@ class FoodController extends \BaseController {
 	 */
 	public function getIndex()
 	{
+		$foods = Food::all();
 
+		return View::make('master_list')->with('foods', $foods);
 	}
 
 
