@@ -7,9 +7,19 @@ class PersonController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct() {
+
+		#Make sure Basecontroller construct gets called
+		parent::__construct();
+
+		#only logged in users are allowed here
+		#$this->beforeFilter('auth');
+	}
 	public function index()
 	{
-		//
+		$persons = Person::all();
+		return View::make('person_index')->with('persons', $persons);
 	}
 
 
@@ -20,7 +30,7 @@ class PersonController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('person_create');
 	}
 
 
@@ -31,7 +41,11 @@ class PersonController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$person = new Person;
+		$person->name = Input::get('name');
+		$person->save();
+
+		return Redirect::action('PersonController@index')->with('flash_message', 'Your new person as been added.');
 	}
 
 
@@ -43,7 +57,14 @@ class PersonController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		try{
+			$person = Person::findOrFail($id);
+		}
+		catch(Exception $e){
+			return Redirect::to('/person')->with('flash_message', 'person not found');
+		}
+
+		return View::make('person_show')->with('person', 'persons');
 	}
 
 
@@ -55,7 +76,14 @@ class PersonController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		try{
+			$person = Person::findOrFail($id);
+		}
+		catch(Exception $e){
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
+
+		return View::make('person_edit')->with('person', $person);
 	}
 
 
@@ -67,7 +95,17 @@ class PersonController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		try {
+			$person = Person::findOrFail($id);
+		}
+		catch(Exception $e){
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
+
+		$person->name = Input::get('name');
+		$person->save();
+
+		return Redirect::action('PersonController@index');
 	}
 
 
@@ -79,7 +117,15 @@ class PersonController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		try{
+			$person = Person::findOrFail($id);
+		}
+		catch(Exception $e){
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
+		Person::destroy($id);
+
+		return Redirect::action('PersonController@index')->with('flash_message', 'Your person has been deleted');
 	}
 
 

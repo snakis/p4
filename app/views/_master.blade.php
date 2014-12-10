@@ -11,7 +11,8 @@
 
 </head>
 <body>
-
+	<a href="/person/create">Add a new shopper</a><br>
+	<a href="/store/create">Add a new store</a><br>
 	@yield('content')
 
 	<script src="{{URL::asset('assets/jquery-1.11.1.min.js')}}"></script>

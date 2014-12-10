@@ -42,7 +42,15 @@ Route::get('/login', function()
     return View::make('login');
 });
 
+Route::get('/add_shopper', function()
+{
+    return View::make('add_shopper');
+});
+
 Route::get('/master_list', 'FoodController@getIndex');
+
+//Implicit RESTful Routing
+Route::resource('person', 'PersonController');
 /*
 Route::get('/groceries', function()
 {

@@ -14,3 +14,4 @@ Laravel Framework: https://github.com/laravel/laravel
 Signin template from: http://getbootstrap.com/examples/signin/
 Login template from: http://cssdeck.com/labs/twitter-bootstrap-tabbed-login-and-signup-register-forms-interface
 Master List table from: http://bootsnipp.com/snippets/featured/bootstrap-snipp-for-datatable
+Person_create from: http://bootsnipp.com/snippets/featured/payment-form-with-total-preview

@@ -97,7 +97,7 @@
     <!-- /.modal-content --> 
   </div>
       <!-- /.modal-dialog --> 
-    </div>
+</div>
 
 
 
