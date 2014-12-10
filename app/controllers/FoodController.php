@@ -7,20 +7,41 @@ class FoodController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		//
+
 	}
 
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new item
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getCreate()
 	{
-		//
+		//$persons = People::getIdNamePair();
+		//return View::make('master_list')->with('persons', $persons);
+		return View::make('master_list');
+	}
+
+		/**
+	 * Process the "Add an item form"
+	 *
+	 * @return Response
+	 */
+	public function postCreate()
+	{
+		#Instantiate the food model
+		$food = new Food();
+
+		$food->fill(Input::all());
+		$food->save();
+
+		#Magic: Eloquent
+		$food->save();
+
+		return Redirect::action('FoodController@getIndex')->with('flash_message', 'Your item has been added.');
 	}
 
 
