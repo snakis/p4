@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<a href="/master_list">View Master List</a><br>
+	<a href="/food/index">View Master List</a><br>
 	<a href="/person/create">Add a new shopper</a><br>
 	<a href="/store/create">Add a new store</a><br>
 	<a href="/food/create">Add a new grocery item</a><br>

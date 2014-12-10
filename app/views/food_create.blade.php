@@ -1,27 +1,36 @@
 @extends('_master')
 
 @section('content')
-  <h1>Add a New Shopper</h1>
+  <h1>Add a New Item to Your List</h1>
 
-  {{ Form::open(array('action' => 'PersonController@store')) }}
+  {{ Form::open(array('action' => 'FoodController@store')) }}
 
     <div>
-      {{ Form::label('name','Shopper Name') }}
-      {{ Form::text('name') }}
+      {{ Form::label('food_type','Food Type') }}
+      {{ Form::text('food_type') }}
     </div>
     <div>
-      {{ Form::label('family_role','Family Role') }}
-      {{ Form::text('family_role') }}
+      {{ Form::label('units','Units') }}
+      {{ Form::text('units') }}
     </div>
-
+    <div>
+      {{ Form::label('amount','amount') }}
+      {{ Form::number('amount') }}
+    </div>
+    <div>
+      {{ Form::label('person_id','Person') }}
+      {{ Form::text('person_id')}}
+    </div>
+    <div>
+      {{ Form::label('store_id','Store') }}
+      {{ Form::text('store_id')}}
+    </div>
+    <div>
+      {{ Form::label('purchased','Purchased') }}
+      {{ Form::number('purchased') }}
+    </div>
     <br><br>
-    {{ Form::submit('Add Shopper') }}
+    {{ Form::submit('Add Item') }}
 
   {{ Form::close() }}
-@stop
-
-@section('javascript_info')
-
-<script src="{{URL::asset('assets/js/person_create.js')}}"></script>
-
 @stop

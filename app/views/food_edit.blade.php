@@ -2,17 +2,33 @@
 
 @section('content')
 
-	{{ Form::model($person, ['method' => 'put', 'action' => ['PersonController@update', $person->id]]) }}
+	{{ Form::model($food, ['method' => 'put', 'action' => ['FoodController@update', $food->id]]) }}
 
-		<h3>Update records for: {{ $person->name }}</h3>
+		<h3>Update records for: {{ $food->food_type }}</h3>
 
 	    <div>
-	      {{ Form::label('name','Shopper Name') }}
-	      {{ Form::text('name') }}
+	      {{ Form::label('food_type','Food Type') }}
+	      {{ Form::text('food_type') }}
 	    </div>
 	    <div>
-	      {{ Form::label('family_role','Family Role') }}
-	      {{ Form::text('family_role') }}
+	      {{ Form::label('units','Units') }}
+	      {{ Form::text('units') }}
+	    </div>
+	    <div>
+	      {{ Form::label('amount','amount') }}
+	      {{ Form::number('amount') }}
+	    </div>
+	    <div>
+	      {{ Form::label('person_id','Person') }}
+	      {{ Form::select('person_id', $persons) }}
+	    </div>
+	    <div>
+	      {{ Form::label('store_id','Store') }}
+	      {{ Form::select('store_id', $stores) }}
+	    </div>
+	    <div>
+	      {{ Form::label('purchased','Purchased') }}
+	      {{ Form::number('purchased', $purchased) }}
 	    </div>
 
 		{{ Form::submit('Update') }}

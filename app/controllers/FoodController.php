@@ -32,9 +32,10 @@ class FoodController extends \BaseController {
 	 */
 	public function create()
 	{
-		$persons = Person::getIdNamePair();
-		$stores = Store::getIdNamePair();
-		return View::make('food_create')->with('persons', $persons)->with('stores', $stores);
+		//$persons = Person::getIdNamePair();
+		//$stores = Store::getIdNamePair();
+		return View::make('food_create');
+		//->with('persons', $persons)->with('stores', $stores);
 	}
 
 	/**
@@ -129,7 +130,7 @@ class FoodController extends \BaseController {
 		Food::destroy($id);
 
 		return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
-	}	}
+	}
 
 
 }

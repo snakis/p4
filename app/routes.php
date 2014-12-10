@@ -47,7 +47,7 @@ Route::get('/master_list', 'FoodController@getIndex');
 //Implicit RESTful Routing
 Route::resource('person', 'PersonController');
 Route::resource('store', 'StoreController');
-Route::resource('food', 'StoreController');
+Route::resource('food', 'FoodController');
 /*
 Route::get('/groceries', function()
 {
