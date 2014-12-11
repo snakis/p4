@@ -32,10 +32,9 @@ class FoodController extends \BaseController {
 	 */
 	public function create()
 	{
-		//$persons = Person::getIdNamePair();
-		//$stores = Store::getIdNamePair();
-		return View::make('food_create');
-		//->with('persons', $persons)->with('stores', $stores);
+		$persons = Person::getIdNamePair();
+		$stores = Store::getIdNamePair();
+		return View::make('food_create')->with('persons', $persons)->with('stores', $stores);
 	}
 
 	/**

@@ -7,30 +7,30 @@
 
     <div>
       {{ Form::label('food_type','Food Type') }}
-      {{ Form::text('food_type') }}
+      {{ Form::text('food_type'); }}
     </div>
     <div>
       {{ Form::label('units','Units') }}
-      {{ Form::text('units') }}
+      {{ Form::text('units'); }}
     </div>
     <div>
       {{ Form::label('amount','amount') }}
-      {{ Form::number('amount') }}
+      {{ Form::number('amount'); }}
     </div>
     <div>
       {{ Form::label('person_id','Person') }}
-      {{ Form::text('person_id')}}
+      {{ Form::select('person_id', $persons); }}
     </div>
     <div>
       {{ Form::label('store_id','Store') }}
-      {{ Form::text('store_id')}}
+      {{ Form::select('store_id', $stores); }}
     </div>
     <div>
       {{ Form::label('purchased','Purchased') }}
-      {{ Form::number('purchased') }}
+      {{ Form::number('purchased'); }}
     </div>
     <br><br>
-    {{ Form::submit('Add Item') }}
+    {{ Form::submit('Add Item'); }}
 
   {{ Form::close() }}
 @stop
