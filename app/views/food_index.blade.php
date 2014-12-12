@@ -23,12 +23,15 @@
                    
                    <thead>
                    
-                   <th><input type="checkbox" id="checkall" /></th>
-                   <th>Shopper Name</th>
-                    <th>Item</th>
+                     <th><input type="checkbox" id="checkall" /></th>
+                     <th>Item</th>
+                     <th>Shopper</th>
                      <th>Store</th>
-                      <th>Edit</th>
-                       <th>Delete</th>
+                     <th>Units</th>
+                     <th>Amount</th>
+                     <th>Purchased?</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
                    </thead>
     <tbody>
     
@@ -37,14 +40,24 @@
 
     @else
     	@foreach($foods as $food)
-    	    <tr>
+    	  <tr>
 		    <td><input type="checkbox" class="checkthis" /></td>
 		    <td>{{$food['food_type']}}</td>
-		    <td>{{$food['person_id']}}</td>
-		    <td>{{$food['store_id']}}</td>
-		    <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-		    <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-		    
+		    <td>{{$food['person']->name}}</td>
+		    <td>{{$food['store']->store_name}}</td>
+        <td>{{$food['units']}}</td>
+        <td>{{$food['amount']}}</td>
+        <td>
+        <?php
+          if($food['purchased'] == 1){
+            echo "yes";
+          }
+          else{
+            echo "no";
+          }
+        ?>
+      </td>
+      
 		    <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 		    <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
 		    </tr>
@@ -54,17 +67,6 @@
     </tbody>
         
 </table>
-
-<div class="clearfix"></div>
-<ul class="pagination pull-right">
-  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-</ul>
                 
             </div>
             
@@ -149,6 +151,7 @@
        
       </div>
         <div class="modal-footer ">
+
         <button id="submit-modal" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
       </div>

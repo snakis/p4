@@ -19,9 +19,11 @@ class FoodController extends \BaseController {
 	 */
 	public function index()
 	{
-		$foods = Food::all();
-
+		$foods = Food::with('person', 'store')->get();
+		//$persons = Person::getIdNamePair();
+		//$stores = Store::getIdNamePair();
 		return View::make('food_index')->with('foods', $foods);
+		//->with('persons', $persons)->with('stores', $stores);
 	}
 
 
@@ -45,8 +47,14 @@ class FoodController extends \BaseController {
 	public function store()
 	{
 		$food = new Food;
-		$food->fill(Input::all());
+		$food->food_type = Input::get('food_type');
+		$food->units = Input::get('units');
+		$food->amount = Input::get('amount');
+		$food->person_id = Input::get('person_id');
+		$food->store_id = Input::get('store_id');
+		$food->purchased = Input::get('purchased');
 		$food->save();
+
 
 		return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been added');
 	}
@@ -105,7 +113,12 @@ class FoodController extends \BaseController {
 			return Redirect::to('/food')->with('flash_message', 'Food not found');
 		}
 
-		$food->fill(Input::all());
+		$food->food_type = Input::get('food_type');
+		$food->units = Input::get('units');
+		$food->amount = Input::get('amount');
+		$food->person_id = Input::get('person_id');
+		$food->store_id = Input::get('store_id');
+		$food->purchased = Input::get('purchased');
 		$food->save();
 
 		return Redirect::action('FoodController@index')->with('flash_message', 'Your changes have been saved');

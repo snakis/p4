@@ -2,13 +2,11 @@
 
 class Food extends Eloquent { 
 
-    public function author() {
-        # Book belongs to Author
+    public function store() {
         return $this->belongsTo('Store');
     }
 
-    public function tags() {
-        # Books belong to many Tags     
+    public function person() {
         return $this->belongsTo('Person');
     }
 

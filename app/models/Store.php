@@ -1,6 +1,6 @@
 <?php
 class Store extends Eloquent {
-	public function book() {
+	public function food() {
         return $this->hasMany('Food');
     }
 	
