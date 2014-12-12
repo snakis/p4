@@ -38,7 +38,7 @@
 <div class="control-group">
   <label class="control-label" for="amount">Amount</label>
   <div class="controls">
-    <input id="amount" name="amount" type="text" placeholder="2" class="input-xlarge" required="">
+    <input id="amount" name="amount" type="number" placeholder="2" class="input-xlarge" required="">
     
   </div>
 </div>

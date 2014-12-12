@@ -16,10 +16,31 @@ $("#mytable #checkall").click(function () {
         }
     });
 });
-/*
-var delete_modal = $('#delete');
 
-delete_modal.on('click', '#submit-modal', function() {
-    alert('hi');
-});
-*/
+function edit_food_item(){
+    
+    $.ajax({
+        type: 'STORE',
+        url: '/food/store',
+        data:$ {
+            
+        },
+        success: function(response){
+
+        },
+    });  
+
+}
+
+function delete_food_item(){
+    $.ajax({
+        type: 'POST',
+        url: '/food/destroy',
+        success: function(response){
+
+        },
+        data: {
+
+        },
+    });
+}

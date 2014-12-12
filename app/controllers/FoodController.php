@@ -20,10 +20,9 @@ class FoodController extends \BaseController {
 	public function index()
 	{
 		$foods = Food::with('person', 'store')->get();
-		//$persons = Person::getIdNamePair();
-		//$stores = Store::getIdNamePair();
-		return View::make('food_index')->with('foods', $foods);
-		//->with('persons', $persons)->with('stores', $stores);
+		$persons = Person::getIdNamePair();
+		$stores = Store::getIdNamePair();
+		return View::make('food_index')->with('foods', $foods)->with('persons', $persons)->with('stores', $stores);
 	}
 
 
@@ -141,7 +140,8 @@ class FoodController extends \BaseController {
 		}
 		Food::destroy($id);
 
-		return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
+		return 1;
+		//return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
 	}
 
 

@@ -57,7 +57,7 @@
           }
         ?>
       </td>
-      
+
 		    <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 		    <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
 		    </tr>
@@ -83,20 +83,46 @@
       </div>
           <div class="modal-body">
           <div class="form-group">
-        <input class="form-control " type="text" placeholder="Shopper">
+            {{ Form::open(array('action' => 'FoodController@store'))}}
+        <input id= "food_type" name="food_type" class="form-control " type="text" placeholder="grocery item">
         </div>
         <div class="form-group">
         
-        <input class="form-control " type="text" placeholder="Item">
+        <input id= "units" name="units" class="form-control " type="text" placeholder="units">
         </div>
         <div class="form-group">
-        <textarea rows="2" class="form-control" placeholder="Store"></textarea>
-    
-        
+
+        <input id= "amount" name="amount" class="form-control " type="number" placeholder="amount">
+        </div>
+        <div class="form-group">
+
+        Shopper:
+        {{Form::select('person_id', $persons)}}
+        </div>
+        <div class="form-group">
+
+        Store:
+        {{Form::select('store_id', $stores)}}
+        </div>
+        <div class="form-checkbox-group">
+
+        <label class="control-label" for="purchased">Purchased?</label>
+        <div class="controls">
+          <label class="checkbox" for="purchased-0">
+            <input type="checkbox" name="purchased" id="purchased-0" value="1">
+            Yes
+          </label>
+          <label class="checkbox" for="purchased-1">
+            <input type="checkbox" name="purchased" id="purchased-1" value="0">
+            No
+          </label>
+        </div>
+        </div>
+        <div class="form-group">          
         </div>
       </div>
           <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+        <button type="button" class="btn btn-warning btn-lg" onclick="edit_food_item()" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
       </div>
         </div>
     <!-- /.modal-content --> 
@@ -152,7 +178,7 @@
       </div>
         <div class="modal-footer ">
 
-        <button id="submit-modal" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button id="submit-modal" class="btn btn-success" onclick="delete_food_item()" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
       </div>
         </div>
