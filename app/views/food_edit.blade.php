@@ -28,7 +28,7 @@
 	    </div>
 	    <div>
 	      {{ Form::label('purchased','Purchased') }}
-	      {{ Form::number('purchased', $purchased) }}
+	      {{ Form::number('purchased') }}
 	    </div>
 
 		{{ Form::submit('Update') }}

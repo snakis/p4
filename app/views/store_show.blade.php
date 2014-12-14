@@ -5,7 +5,7 @@
 	<h2>Tag: {{ $store->store_name }}</h2>
 
 	<div>
-	Family Role: {{ $store->location }}
+	Store Location: {{ $store->location }}
 	</div>
 
 	<div>

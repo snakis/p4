@@ -18,7 +18,7 @@ $("#mytable #checkall").click(function () {
 });
 
 function edit_food_item(){
-    
+    /*
     $.ajax({
         type: 'STORE',
         url: '/food/store',
@@ -28,14 +28,21 @@ function edit_food_item(){
         success: function(response){
 
         },
-    });  
+
+    }); */ 
 
 }
 
 function delete_food_item(){
+
+    alert('hi');
+//try naming the delete button
+}
+/*
+
     $.ajax({
-        type: 'POST',
-        url: '/food/destroy',
+        type: 'GET',
+        url: '/food/destroy/id',
         success: function(response){
 
         },
@@ -44,3 +51,6 @@ function delete_food_item(){
         },
     });
 }
+*/
+
+//use event handler

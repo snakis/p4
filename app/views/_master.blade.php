@@ -17,6 +17,8 @@
 	<a href="/store/create">Add a new store</a><br>
 	<a href="/food/create">Add a new grocery item</a><br>
 	<a href="/food/edit">Edit a grocery item</a><br>
+	<a href="/person/index">View all shoppers</a><br>
+	<a href="/store/index">View all stores</a><br>
 
 	@yield('content')
 

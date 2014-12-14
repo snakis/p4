@@ -92,8 +92,11 @@ class FoodController extends \BaseController {
 		catch(Exception $e){
 			return Redirect::to('/food')->with('flash_message', 'Food not found');
 		}
-
-		return View::make('food_edit')->with('food', $food);
+		
+		$persons = Person::getIdNamePair();
+		$stores = Store::getIdNamePair();
+		return View::make('food_edit')->with('food', $food)->with('persons', $persons)->with('stores', $stores);
+;
 	}
 
 
@@ -140,8 +143,8 @@ class FoodController extends \BaseController {
 		}
 		Food::destroy($id);
 
-		return 1;
-		//return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
+		//return 1;
+		return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
 	}
 
 

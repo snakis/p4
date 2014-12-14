@@ -40,11 +40,11 @@
 
     @else
     	@foreach($foods as $food)
-    	  <tr>
+    	  <tr id={{$food['id']}}>
 		    <td><input type="checkbox" class="checkthis" /></td>
-		    <td>{{$food['food_type']}}</td>
-		    <td>{{$food['person']->name}}</td>
-		    <td>{{$food['store']->store_name}}</td>
+		    <td><a href='/food/{{ $food['id']}}'>{{$food['food_type']}}</a></td>
+		    <td><a href='/person/{{$food['person']->id}}'>{{$food['person']->name}}</a></td>
+		    <td><a href='/store/{{$food['store']->id}}'>{{$food['store']->store_name}}</td>
         <td>{{$food['units']}}</td>
         <td>{{$food['amount']}}</td>
         <td>
@@ -59,7 +59,8 @@
       </td>
 
 		    <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-		    <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+        <td><p><button class="btn btn-danger btn-xs" type="submit" data-title="Delete" onclick="window.location='/food/{{$food['id']}}';"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+<!--		    <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
 		    </tr>
 		@endforeach
     @endif
@@ -83,7 +84,6 @@
       </div>
           <div class="modal-body">
           <div class="form-group">
-            {{ Form::open(array('action' => 'FoodController@store'))}}
         <input id= "food_type" name="food_type" class="form-control " type="text" placeholder="grocery item">
         </div>
         <div class="form-group">
@@ -178,7 +178,7 @@
       </div>
         <div class="modal-footer ">
 
-        <button id="submit-modal" class="btn btn-success" onclick="delete_food_item()" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button id="submit-modal" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
       </div>
         </div>
