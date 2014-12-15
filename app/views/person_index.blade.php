@@ -12,4 +12,9 @@
 
 	@endforeach
 
+	<br>
+	<br>
+	
+	<a href="/person/create">Add a new shopper</a><br>
+
 @stop

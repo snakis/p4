@@ -11,5 +11,9 @@
 		</div>
 
 	@endforeach
+	
+	<br><br>
+
+	<a href="/food/create">Add a new grocery item</a><br>
 
 @stop
