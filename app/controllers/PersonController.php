@@ -1,6 +1,6 @@
 <?php
 
-class PersonController extends \BaseController {
+class PersonController extends BaseController {
 
 
 	public function __construct() {

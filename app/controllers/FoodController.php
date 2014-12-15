@@ -1,6 +1,6 @@
 <?php
 
-class FoodController extends \BaseController {
+class FoodController extends BaseController {
 
 
 	public function __construct() {
