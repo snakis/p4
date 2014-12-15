@@ -9,7 +9,7 @@ class FoodController extends \BaseController {
 		parent::__construct();
 
 		#only logged in users are allowed here
-		#$this->beforeFilter('auth');
+		$this->beforeFilter('auth', array('except' => ['getIndex', 'getDigest']));
 	}
 
 	/**

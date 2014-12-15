@@ -14,7 +14,7 @@ class StoreController extends \BaseController {
 		parent::__construct();
 
 		#only logged in users are allowed here
-		#$this->beforeFilter('auth');
+		$this->beforeFilter('auth');
 	}
 	public function index()
 	{
