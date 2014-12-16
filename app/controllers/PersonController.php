@@ -20,7 +20,8 @@ class PersonController extends BaseController {
 
 	public function index()
 	{
-		$persons = Person::all();
+		//query all persons assosiated with this user
+		$persons = Person::where('user_id', '=', Auth::id())->get();
 		return View::make('person_index')->with('persons', $persons);
 	}
 
@@ -46,6 +47,7 @@ class PersonController extends BaseController {
 		$person = new Person;
 		$person->name = Input::get('name');
 		$person->family_role = Input::get('family_role');
+		$person->user_id = Input::get('user_id');
 		$person->save();
 
 		return Redirect::action('PersonController@index')->with('flash_message', 'Your new person as been added.');
@@ -66,8 +68,12 @@ class PersonController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/person')->with('flash_message', 'person not found');
 		}
-
-		return View::make('person_show')->with('person', $person);
+		if($person->user_id == Auth::id()){
+			return View::make('person_show')->with('person', $person);
+		}
+		else{
+			return Redirect::to('/person')->with('flash_message', 'person not found');
+		}
 	}
 
 
@@ -85,8 +91,12 @@ class PersonController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/person')->with('flash_message', 'Person not found');
 		}
-
-		return View::make('person_edit')->with('person', $person);
+		if($person->user_id == Auth::id()){
+			return View::make('person_edit')->with('person', $person);
+		}
+		else{
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
 	}
 
 
@@ -107,9 +117,16 @@ class PersonController extends BaseController {
 
 		$person->name = Input::get('name');
 		$person->family_role = Input::get('family_role');
-		$person->save();
+		$person->user_id = Input::get('user_id');
 
-		return Redirect::action('PersonController@index');
+		if($person->user_id == Auth::id()){
+			$person->save();
+			
+			return Redirect::action('PersonController@index');
+		}
+		else{
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
 	}
 
 
@@ -127,9 +144,14 @@ class PersonController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/person')->with('flash_message', 'Person not found');
 		}
-		Person::destroy($id);
+		if($person->user_id == Auth::id()){
+			Person::destroy($id);
 
-		return Redirect::action('PersonController@index')->with('flash_message', 'Your person has been deleted');
+			return Redirect::action('PersonController@index')->with('flash_message', 'Your person has been deleted');
+		}
+		else{
+			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
 	}
 
 

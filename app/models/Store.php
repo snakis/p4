@@ -6,11 +6,16 @@ class Store extends Eloquent {
 	
     public static function getIdNamePair() {
         $stores = Array();
-        $collection = Store::all();
+        $collection = Store::where('user_id', '=', Auth::id())->get();
         foreach($collection as $store) {
             $stores[$store->id] = $store->store_name;
         }
         return $stores;
     }
+
+        public function user() {
+        return $this->belongsTo('User');
+    }
+
 }
 

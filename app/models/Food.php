@@ -10,5 +10,9 @@ class Food extends Eloquent {
         return $this->belongsTo('Person');
     }
 
+    public function user() {
+    	return $this->belongsTo('User');
+    }
+
 }
 	

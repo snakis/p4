@@ -13,7 +13,7 @@
       {{ Form::label('location','Location') }}
       {{ Form::text('location') }}
     </div>
-
+      {{ Form::hidden('user_id', Auth::id()) }}
     <br><br>
     {{ Form::submit('Add Store') }}
 

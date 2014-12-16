@@ -13,7 +13,7 @@
       {{ Form::label('family_role','Family Role') }}
       {{ Form::text('family_role') }}
     </div>
-
+      {{ Form::hidden('user_id', Auth::id()) }}
     <br><br>
     {{ Form::submit('Add Shopper') }}
 

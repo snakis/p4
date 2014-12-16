@@ -14,7 +14,8 @@
 	      {{ Form::label('location','Location') }}
 	      {{ Form::text('location') }}
 	    </div>
-
+	      {{ Form::hidden('user_id', Auth::id()) }}
+	      
 		{{ Form::submit('Update') }}
 
 	{{ Form::close() }}

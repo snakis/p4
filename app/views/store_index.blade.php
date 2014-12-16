@@ -14,6 +14,6 @@
 	
 	<br><br>
 
-	<a href="/food/create">Add a new grocery item</a><br>
+	<a href="/store/create">Add a new store</a><br>
 
 @stop

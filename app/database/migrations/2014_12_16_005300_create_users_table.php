@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration {
 		    $table->string('remember_token',100); 
 		    $table->string('password');
 		    $table->timestamps();
-		});	}
+		});	
+	}
 
 	/**
 	 * Reverse the migrations.

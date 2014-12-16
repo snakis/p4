@@ -30,7 +30,8 @@
 	      {{ Form::label('purchased','Purchased') }}
 	      {{ Form::number('purchased') }}
 	    </div>
-
+	      {{ Form::hidden('user_id', Auth::id()) }}
+	      
 		{{ Form::submit('Update') }}
 
 	{{ Form::close() }}

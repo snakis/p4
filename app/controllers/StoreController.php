@@ -18,7 +18,8 @@ class StoreController extends BaseController {
 	}
 	public function index()
 	{
-		$stores = Store::all();
+		//query all stores assosiated with this user
+		$stores = Store::where('user_id', '=', Auth::id())->get();
 		return View::make('store_index')->with('stores', $stores);
 	}
 
@@ -44,6 +45,7 @@ class StoreController extends BaseController {
 		$store = new Store;
 		$store->store_name = Input::get('store_name');
 		$store->location = Input::get('location');
+		$store->user_id = Input::get('user_id');
 		$store->save();
 
 		return Redirect::action('StoreController@index')->with('flash_message', 'Your new store as been added.');
@@ -64,8 +66,12 @@ class StoreController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/store')->with('flash_message', 'store not found');
 		}
-
-		return View::make('store_show')->with('store', $store);
+		if($show->user_id == Auth::id()){
+			return View::make('store_show')->with('store', $store);
+		}
+		else{
+			return Redirect::to('/store')->with('flash_message', 'store not found');
+		}
 	}
 
 
@@ -83,8 +89,12 @@ class StoreController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/store')->with('flash_message', 'Store not found');
 		}
-
-		return View::make('store_edit')->with('store', $store);
+		if($show->user_id == Auth::id()){
+			return View::make('store_edit')->with('store', $store);
+		}
+		else{
+			return Redirect::to('/store')->with('flash_message', 'Store not found');
+		}
 	}
 
 
@@ -105,9 +115,15 @@ class StoreController extends BaseController {
 
 		$store->store_name = Input::get('store_name');
 		$store->location = Input::get('location');
-		$store->save();
-
-		return Redirect::action('StoreController@index');
+		$store->user_id = Input::get('user_id');
+		if($show->user_id == Auth::id()){
+			$store->save();
+			
+			return Redirect::action('StoreController@index');
+		}
+		else{
+			return Redirect::to('/store')->with('flash_message', 'Store not found');
+		}
 	}
 
 
@@ -125,9 +141,14 @@ class StoreController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/store')->with('flash_message', 'Store not found');
 		}
-		Store::destroy($id);
+		if($show->user_id == Auth::id()){
+			Store::destroy($id);
 
-		return Redirect::action('StoreController@index')->with('flash_message', 'Your store has been deleted');
+			return Redirect::action('StoreController@index')->with('flash_message', 'Your store has been deleted');
+		}
+		else{
+			return Redirect::to('/store')->with('flash_message', 'Store not found');
+		}
 	}
 
 

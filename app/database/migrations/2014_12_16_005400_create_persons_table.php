@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoresTable extends Migration {
+class CreatePersonsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateStoresTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('stores', function($table) {
+		Schema::create('persons', function($table) {
 			# AI, PK
 			$table->increments('id');
  
@@ -20,11 +20,12 @@ class CreateStoresTable extends Migration {
 			$table->timestamps();
  
 			# General data...
-			$table->string('store_name');
-			$table->string('location');
+			$table->string('name');
+			$table->string('family_role');
+			$table->integer('user_id')->unsigned(); #FK
 			
 			# Define foreign keys...
-			# none needed
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 
@@ -35,7 +36,7 @@ class CreateStoresTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('stores');
+		Schema::drop('persons');
 	}
 
 }

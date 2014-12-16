@@ -19,7 +19,8 @@ class FoodController extends BaseController {
 	 */
 	public function index()
 	{
-		$foods = Food::with('person', 'store')->get();
+		//query all foods assosiated with this user
+		$foods = Food::where('user_id', '=', Auth::id())->with('person', 'store')->get();
 		$persons = Person::getIdNamePair();
 		$stores = Store::getIdNamePair();
 		return View::make('food_index')->with('foods', $foods)->with('persons', $persons)->with('stores', $stores);
@@ -35,6 +36,7 @@ class FoodController extends BaseController {
 	{
 		$persons = Person::getIdNamePair();
 		$stores = Store::getIdNamePair();
+
 		return View::make('food_create')->with('persons', $persons)->with('stores', $stores);
 	}
 
@@ -52,6 +54,7 @@ class FoodController extends BaseController {
 		$food->person_id = Input::get('person_id');
 		$food->store_id = Input::get('store_id');
 		$food->purchased = Input::get('purchased');
+		$food->user_id = Input::get('user_id');
 		$food->save();
 
 
@@ -74,7 +77,14 @@ class FoodController extends BaseController {
 			return Redirect::to('/food')->with('flash_message', 'food not found');
 		}
 
-		return View::make('food_show')->with('food', $food);
+		if($food->user_id == Auth::id()){
+			return View::make('food_show')->with('food', $food);			
+		}
+		else{
+			return Redirect::to('/food')->with('flash_message', 'food not found');
+		}
+
+
 	}
 
 
@@ -95,8 +105,12 @@ class FoodController extends BaseController {
 		
 		$persons = Person::getIdNamePair();
 		$stores = Store::getIdNamePair();
-		return View::make('food_edit')->with('food', $food)->with('persons', $persons)->with('stores', $stores);
-;
+		if($food->user_id == Auth::id()){
+			return View::make('food_edit')->with('food', $food)->with('persons', $persons)->with('stores', $stores);
+		}
+		else{
+			return Redirect::to('/food')->with('flash_message', 'Food not found');
+		}
 	}
 
 
@@ -121,9 +135,16 @@ class FoodController extends BaseController {
 		$food->person_id = Input::get('person_id');
 		$food->store_id = Input::get('store_id');
 		$food->purchased = Input::get('purchased');
-		$food->save();
-
-		return Redirect::action('FoodController@index')->with('flash_message', 'Your changes have been saved');
+		$food->user_id = Input::get('user_id');
+		
+		if($food->user_id == Auth::id()){
+			$food->save();
+			
+			return Redirect::action('FoodController@index')->with('flash_message', 'Your changes have been saved');
+		}
+		else{
+			return Redirect::to('/food')->with('flash_message', 'Food not found');
+		}
 	}
 
 
@@ -141,10 +162,16 @@ class FoodController extends BaseController {
 		catch(Exception $e){
 			return Redirect::to('/food')->with('flash_message', 'Food not found');
 		}
-		Food::destroy($id);
 
-		//return 1;
-		return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
+		if($food->user_id == Auth::id()){
+			Food::destroy($id);
+
+			//return 1;
+			return Redirect::action('FoodController@index')->with('flash_message', 'Your item has been deleted');
+		}
+		else{
+			return Redirect::to('/food')->with('flash_message', 'Food not found');
+		}
 	}
 
 

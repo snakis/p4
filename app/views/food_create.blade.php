@@ -6,6 +6,17 @@
 
 @section('content')
 
+@if(sizeof($persons) == 0 || sizeof($stores) == 0)
+  <h2>To get started...</h2>
+
+  @if(sizeof($persons) == 0)
+    <h3><a href='/person/create/'>Add a shopper to your list</a></h3>
+  @endif
+  @if(sizeof($stores) == 0)
+    <h3><a href='/store/create/'>Add a store to your list</a></h3><br>
+  @endif
+
+@else 
 <div class="container">
 
   {{ Form::open(array('action' => 'FoodController@store')) }}
@@ -74,6 +85,9 @@
   </div>
 </div>
 
+  <!-- Add in user_id field -->
+  {{ Form::hidden('user_id', Auth::id()) }}
+
 <!-- Button -->
 <div class="control-group">
   <label class="control-label" for="submit"></label>
@@ -85,6 +99,6 @@
 </fieldset>
 </form>
 </div>
-
+@endif
 
 @stop

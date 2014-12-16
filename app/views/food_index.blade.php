@@ -7,13 +7,23 @@
 
 @section('content')
 
-<br> <br> <br> <br>
+<br> <br>
 
+@if(sizeof($persons) == 0 || sizeof($stores) == 0)
+  <h2>To get started...</h2>
+
+  @if(sizeof($persons) == 0)
+    <h3><a href='/person/create/'>Add a shopper to your list</a></h3>
+  @endif
+  @if(sizeof($stores) == 0)
+    <h3><a href='/store/create/'>Add a store to your list</a></h3><br>
+  @endif
+
+@else 
 <div class="container">
 	<a href="#" class="btn btn-primary btn-xs pull-right" type="submit" data-title="add_new"  onclick="window.location='/food/create';"><b>+</b> Add more items</a>
 <div class="row">
-		
-        
+    
 <div class="col-md-12">
   <h4>Family Shopping List</h4>
   <div class="table-responsive">
@@ -67,8 +77,9 @@
     </tbody>
         
   </table>
-                
+@endif             
 </div>            
+
 </div>
 </div>
 </div>

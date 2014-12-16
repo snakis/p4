@@ -14,7 +14,7 @@
 	      {{ Form::label('family_role','Family Role') }}
 	      {{ Form::text('family_role') }}
 	    </div>
-
+	      {{ Form::hidden('user_id', Auth::id()) }}
 		{{ Form::submit('Update') }}
 
 	{{ Form::close() }}
