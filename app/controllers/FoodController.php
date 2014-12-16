@@ -77,8 +77,11 @@ class FoodController extends BaseController {
 			return Redirect::to('/food')->with('flash_message', 'food not found');
 		}
 
+		$persons = Person::getIdNamePair();
+		$stores = Store::getIdNamePair();
+
 		if($food->user_id == Auth::id()){
-			return View::make('food_show')->with('food', $food);			
+			return View::make('food_show')->with('food', $food)->with('persons', $persons)->with('stores', $stores);;			
 		}
 		else{
 			return Redirect::to('/food')->with('flash_message', 'food not found');
@@ -139,7 +142,7 @@ class FoodController extends BaseController {
 		
 		if($food->user_id == Auth::id()){
 			$food->save();
-			
+
 			return Redirect::action('FoodController@index')->with('flash_message', 'Your changes have been saved');
 		}
 		else{

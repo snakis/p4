@@ -5,15 +5,15 @@
 	<h2>Tag: {{ $person->name }}</h2>
 
 	<div>
-	Family Role: {{ $person->family_role }}
+	<b>Family Role</b>: {{ $person->family_role }}
 	</div>
 
 	<div>
-	Created: {{ $person->created_at }}
+	<b>Created</b>: {{ $person->created_at }}
 	</div>
 
 	<div>
-	Last Updated: {{ $person->updated_at }}
+	<b>Last Updated</b>: {{ $person->updated_at }}
 	</div>
 
 	<a href='/person/{{ $person->id }}/edit'>Edit</a>

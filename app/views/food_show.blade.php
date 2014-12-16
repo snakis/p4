@@ -2,34 +2,35 @@
 
 @section('content')
 
-	<h2>Food Type: {{ $food->type }}</h2>
+	<h2>Grocery Item: {{ $food->food_type }}</h2>
 
 	<div>
-	Units: {{ $food->units }}
+	<b>Units</b>: {{ $food->units }}
 	</div>
 
 	<div>
-	Amount: {{ $food->amount }}
+	<b>Amount</b>: {{ $food->amount }}
 	</div>
 
 	<div>
-	Person: {{ $food->person_id }}
+	<b>Person</b>: {{ $food['person']->name }}
 	</div>
 
 	<div>
-	Store: {{ $food->store_id }}
+	<b>Store</b>: {{ $food['store']->store_name }}
 	</div>
 
 	<div>
-	Purchased: {{ $food->purchased }}
+	<b>Purchased</b>:
+	{{{ $food->purchased ? 'Yes' : 'No'}}}
 	</div>
 
 	<div>
-	Created: {{ $food->created_at }}
+	<b>Created</b>: {{ $food->created_at }}
 	</div>
 
 	<div>
-	Last Updated: {{ $food->updated_at }}
+	<b>Last Updated</b>: {{ $food->updated_at }}
 	</div>
 
 	<a href='/food/{{ $food->id }}/edit'>Edit</a>

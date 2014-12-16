@@ -5,15 +5,15 @@
 	<h2>Tag: {{ $store->store_name }}</h2>
 
 	<div>
-	Store Location: {{ $store->location }}
+	<b>Store Location</b>: {{ $store->location }}
 	</div>
 
 	<div>
-	Created: {{ $store->created_at }}
+	<b>Created</b>: {{ $store->created_at }}
 	</div>
 
 	<div>
-	Last Updated: {{ $store->updated_at }}
+	<b>Last Updated</b>: {{ $store->updated_at }}
 	</div>
 
 	<a href='/store/{{ $store->id }}/edit'>Edit</a>

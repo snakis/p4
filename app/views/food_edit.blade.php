@@ -28,7 +28,7 @@
 	    </div>
 	    <div>
 	      {{ Form::label('purchased','Purchased') }}
-	      {{ Form::number('purchased') }}
+	      {{ Form::select('purchased', array('1' => 'Yes', '0' => 'No'))}}
 	    </div>
 	      {{ Form::hidden('user_id', Auth::id()) }}
 	      
