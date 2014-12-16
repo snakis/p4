@@ -1,5 +1,8 @@
 <?php
 class Person extends Eloquent {
+
+	protected $table = 'persons'; // tells Laravel that the Person model uses a table called persons, not people
+
 	public function food() {
         return $this->hasMany('Food');
     }
