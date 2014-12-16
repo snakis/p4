@@ -21,6 +21,10 @@
 			<div style="text-align: right"><a href='/logout'>Log out {{ Auth::user()->email; }}&nbsp&nbsp&nbsp&nbsp</a></div>
 		</div>
 
+		@foreach($errors->all() as $message)
+			<div class='error' style="color:red">ERROR: {{ $message }}</div>
+		@endforeach
+
 		@yield('content')
 
 		<br><br>

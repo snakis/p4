@@ -44,6 +44,19 @@ class PersonController extends BaseController {
 	 */
 	public function store()
 	{
+
+		$rules = array(
+			'name' => 'required',
+			'family_role' => 'required',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::to('/person/create')->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
+		}
+
 		$person = new Person;
 		$person->name = Input::get('name');
 		$person->family_role = Input::get('family_role');
@@ -113,6 +126,18 @@ class PersonController extends BaseController {
 		}
 		catch(Exception $e){
 			return Redirect::to('/person')->with('flash_message', 'Person not found');
+		}
+
+		$rules = array(
+			'name' => 'required',
+			'family_role' => 'required',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
 		}
 
 		$person->name = Input::get('name');

@@ -47,6 +47,23 @@ class FoodController extends BaseController {
 	 */
 	public function store()
 	{
+		$rules = array(
+			'food_type' => 'required',
+			'units' => 'required',
+			'amount' => 'required|numeric|max:1000000|min:0',
+			'person_id' => 'required',
+			'store_id' => 'required',
+			'purchased' => 'required|boolean',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::to('/food/create')->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
+		}
+
+		
 		$food = new Food;
 		$food->food_type = Input::get('food_type');
 		$food->units = Input::get('units');
@@ -130,6 +147,22 @@ class FoodController extends BaseController {
 		}
 		catch(Exception $e){
 			return Redirect::to('/food')->with('flash_message', 'Food not found');
+		}
+
+		$rules = array(
+			'food_type' => 'required',
+			'units' => 'required',
+			'amount' => 'required|numeric|max:1000000|min:0',
+			'person_id' => 'required',
+			'store_id' => 'required',
+			'purchased' => 'required|boolean',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
 		}
 
 		$food->food_type = Input::get('food_type');

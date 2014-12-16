@@ -42,6 +42,19 @@ class StoreController extends BaseController {
 	 */
 	public function store()
 	{
+
+		$rules = array(
+			'store_name' => 'required',
+			'location' => 'required',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::to('/store/create')->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
+		}
+
 		$store = new Store;
 		$store->store_name = Input::get('store_name');
 		$store->location = Input::get('location');
@@ -111,6 +124,19 @@ class StoreController extends BaseController {
 		}
 		catch(Exception $e){
 			return Redirect::to('/store')->with('flash_message', 'Store not found');
+		}
+
+
+		$rules = array(
+			'store_name' => 'required',
+			'location' => 'required',
+			'user_id' => 'required'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->with('falsh_message', 'Oops there were some errors...')->withInput()->withErrors($validator);
 		}
 
 		$store->store_name = Input::get('store_name');
