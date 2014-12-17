@@ -15,6 +15,7 @@ Route::resource('person', 'PersonController');
 Route::resource('store', 'StoreController');
 Route::resource('food', 'FoodController');
 
+/*
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -57,5 +58,5 @@ Route::get('/debug', function() {
     }
 
     echo '</pre>';
-
+*/
 });

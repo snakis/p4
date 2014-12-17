@@ -170,6 +170,14 @@ class PersonController extends BaseController {
 			return Redirect::to('/person')->with('flash_message', 'Person not found');
 		}
 		if($person->user_id == Auth::id()){
+			//check if this is linked to any instances of food
+			$foods = Food::where('user_id', '=', Auth::id())->with('person', 'store')->get();
+			foreach ($foods as $food) {
+				if($food->person_id == $id){
+					$cannot_delete = "Cannot delete this entry- it is associated with at least one instance of a grocery item";
+					return Redirect::back()->with('flash_message', 'Cannot delete this entry- it is associated with at least one instance of a grocery item')->withErrors($cannot_delete);;
+				}
+			}
 			Person::destroy($id);
 
 			return Redirect::action('PersonController@index')->with('flash_message', 'Your person has been deleted');

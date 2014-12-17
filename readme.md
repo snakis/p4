@@ -4,15 +4,13 @@
 <http://p4.samanthanakis.me>
 
 ##Description
-This site fulfills the requirements of project 3 for CSCI E-15. It will generate Lorem Ipsum text and Random Users. It will do this using the Laravel framework, composer packages, routing, views, and forms. 
+This site fulfills the requirements of project 4 for CSCI E-15. It will allow a user to login and generate a list of groceries, assigning shoppers and stores to each of them.
 
 ##Details
-No login required
+First sign up with an email address and a password. Then you are able to log in with this account.
 
 ##Outside code
 Laravel Framework: https://github.com/laravel/laravel
 Master List table from: http://bootsnipp.com/snippets/featured/bootstrap-snipp-for-datatable
-Person_create from: http://bootsnipp.com/snippets/featured/payment-form-with-total-preview
-Forms built with: http://bootsnipp.com/forms
-Login template from: http://bootsnipp.com/snippets/featured/login-amp-signup-forms-in-panel
-Signup template: http://bootsnipp.com/snippets/featured/facebook-style-signup-form
+Some Forms built with: http://bootsnipp.com/forms
+Templates and ideas taken from: https://github.com/susanBuck/foobooks

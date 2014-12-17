@@ -7,7 +7,15 @@ class IndexController extends BaseController {
 	}
 
 public function getIndex(){
-	return View::make('index');
+	
+	if(Auth::check()){
+		$redirect_error = "You are already logged in. Please log out first to log into another user.";
+		return Redirect::to('/food')->with('flash_message', 'You are already logged in. Please log out first to log in another user.')->withErrors($redirect_error);
+				
+	}
+	else{
+		return View::make('index');
+	}
 }
 
 }

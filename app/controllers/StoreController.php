@@ -168,6 +168,14 @@ class StoreController extends BaseController {
 			return Redirect::to('/store')->with('flash_message', 'Store not found');
 		}
 		if($store->user_id == Auth::id()){
+			//check if this is linked to any instances of food
+			$foods = Food::where('user_id', '=', Auth::id())->with('person', 'store')->get();
+			foreach ($foods as $food) {
+				if($food->store_id == $id){
+					$cannot_delete = "Cannot delete this entry- it is associated with at least one instance of a grocery item";
+					return Redirect::back()->with('flash_message', 'Cannot delete this entry- it is associated with at least one instance of a grocery item')->withErrors($cannot_delete);;
+				}
+			}
 			Store::destroy($id);
 
 			return Redirect::action('StoreController@index')->with('flash_message', 'Your store has been deleted');
