@@ -6,34 +6,40 @@
     <meta charset='utf-8'>
 
     {{HTML::style('assets/css/bootstrap.min.css')}}
-    {{HTML::style('assets/css/food_style.css')}}
     {{HTML::style('assets/css/master_style.css')}}
 
     @yield('header_content')
 
 </head>
 <body>
-	<ul>
 	@if(Auth::check())
+	<header>
+		<div style='color: DimGray'>
+			<h2>My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg'></h2>
+		</div>
+	</header>
+	<ul>
 		<div>
 			<br>
-			<div style="text-align: left"><a href="/food/index">View Master List</a></div>
+			<b><div style="text-align: left"><a href="/food/index">View Master List</a></div></b>
 			<div style="text-align: right"><a href='/logout'>Log out {{ Auth::user()->email; }}&nbsp&nbsp&nbsp&nbsp</a></div>
 		</div>
 
-		@foreach($errors->all() as $message)
-			<div class='error' style="color:red">ERROR: {{ $message }}</div>
-		@endforeach
+		<div>
+			@foreach($errors->all() as $message)
+				<div class='error' style="color:red">ERROR: {{ $message }}</div>
+			@endforeach
 
-		@yield('content')
+			@yield('content')
+		</div>
 
 		<br><br>
-		<p class="lower_link">
+		<div class="lower_link">
 			<a href="/person/index">Manage Shoppers</a>&nbsp
 			<a href="/store/index">Manage Stores</a>&nbsp&nbsp&nbsp&nbsp<br>
-		</p>
-	@endif
+		</div>
 	</ul>
+	@endif
 
 	@yield('no_login_content')
 

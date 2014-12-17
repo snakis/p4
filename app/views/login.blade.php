@@ -2,7 +2,9 @@
 
 @section('no_login_content')
 
-<h1>Log in</h1>
+<div style='color: DimGray'>
+	<h1>Log into to My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg'></h1>
+</div>
 <br>
 {{ Form::open(array('url' => '/login')) }}
 

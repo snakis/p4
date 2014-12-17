@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h2>Tag: {{ $person->name }}</h2>
+	<h2>Shopper Name: {{ $person->name }}</h2>
 
 	<div>
 	<b>Family Role</b>: {{ $person->family_role }}

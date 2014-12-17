@@ -17,3 +17,5 @@ Master List table from: http://bootsnipp.com/snippets/featured/bootstrap-snipp-f
 Some Forms built with: http://bootsnipp.com/forms
 
 Templates and ideas taken from: https://github.com/susanBuck/foobooks
+
+Logo image from: http://www.freedigitalphotos.net/images/agree-terms.php?id=10024878

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h2>Tag: {{ $store->store_name }}</h2>
+	<h2>Store Name: {{ $store->store_name }}</h2>
 
 	<div>
 	<b>Store Location</b>: {{ $store->location }}

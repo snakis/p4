@@ -6,8 +6,10 @@
 
 @section('no_login_content')
 
-<h1>Sign up</h1>
-
+<div style='color: DimGray'>
+	<h1>Sign Up for My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg'></h1>
+</div>
+<br>
 @foreach($errors->all() as $message)
   <div class='error'>{{ $message }}</div>
 @endforeach
@@ -26,6 +28,6 @@
 {{ Form::close() }}
 
 <br>
-<a href="/signup">Already have an account? Log on!</a>
+<a href="/login">Already have an account? Log on!</a>
 
 @stop
