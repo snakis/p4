@@ -7,7 +7,7 @@
 @section('no_login_content')
 
 <div style='color: DimGray'>
-	<h1>Sign Up for My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg'></h1>
+	<h1>Sign Up for My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg' alt='groceries'></h1>
 </div>
 <br>
 @foreach($errors->all() as $message)

@@ -9,12 +9,14 @@ This site fulfills the requirements of project 4 for CSCI E-15. It will allow a 
 ##Details
 First sign up with an email address and a password. Then you are able to log in with this account.
 
+Dummy account available: email- dummy@gmail.com password-123hello
+
 ##Outside code
 Laravel Framework: https://github.com/laravel/laravel
 
 Master List table from: http://bootsnipp.com/snippets/featured/bootstrap-snipp-for-datatable
 
-Some Forms built with: http://bootsnipp.com/forms
+Food Create Form built with: http://bootsnipp.com/forms
 
 Templates and ideas taken from: https://github.com/susanBuck/foobooks
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title></title>
     <meta charset='utf-8'>
 
     {{HTML::style('assets/css/bootstrap.min.css')}}
@@ -15,7 +13,7 @@
 	@if(Auth::check())
 	<header>
 		<div style='color: DimGray'>
-			<h2>My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg'></h2>
+			<h2>My Grocery List Manager <img class='logo' src='/images/grocery_image.jpg' alt='Groceries'></h2>
 		</div>
 	</header>
 	<ul>

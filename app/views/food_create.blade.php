@@ -74,12 +74,12 @@
 <div class="control-group">
   <label class="control-label" for="purchased">Purchased?</label>
   <div class="controls">
-    <label class="checkbox" for="purchased-0">
-      <input type="checkbox" name="purchased" id="purchased-0" value="1">
+    <label class="radio" for="purchased-0">
+      <input type="radio" name="purchased" id="purchased-0" value="1">
       Yes
     </label>
-    <label class="checkbox" for="purchased-1">
-      <input type="checkbox" name="purchased" id="purchased-1" value="0">
+    <label class="radio" for="purchased-1">
+      <input type="radio" name="purchased" id="purchased-1" value="0">
       No
     </label>
   </div>
