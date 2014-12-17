@@ -11,6 +11,9 @@ First sign up with an email address and a password. Then you are able to log in 
 
 ##Outside code
 Laravel Framework: https://github.com/laravel/laravel
+
 Master List table from: http://bootsnipp.com/snippets/featured/bootstrap-snipp-for-datatable
+
 Some Forms built with: http://bootsnipp.com/forms
+
 Templates and ideas taken from: https://github.com/susanBuck/foobooks
