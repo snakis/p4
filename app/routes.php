@@ -58,5 +58,5 @@ Route::get('/debug', function() {
     }
 
     echo '</pre>';
-*/
-});
+
+});*/
