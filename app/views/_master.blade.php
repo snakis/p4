@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>My Grocery List Manager</title>
     <meta charset='utf-8'>
 
     {{HTML::style('assets/css/bootstrap.min.css')}}
