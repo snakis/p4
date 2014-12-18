@@ -11,6 +11,8 @@ First sign up with an email address and a password. Then you are able to log in 
 
 Dummy account available: email- dummy@gmail.com password-123hello
 
+Demo available at: http://screencast.com/t/MWfPXQ28
+
 ##Outside code
 Laravel Framework: https://github.com/laravel/laravel
 
